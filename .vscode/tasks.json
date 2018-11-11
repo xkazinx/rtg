@@ -1,0 +1,63 @@
+{
+    "version": "2.0.0",
+    "reveal": true,
+    "options": {
+        "cwd": "${workspaceRoot}"
+    },
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "windows": {
+                "command": "powershell"
+            },
+            "linux": {
+                //"command": "bash"
+                "command": "g++",
+            },
+            "args": [
+                "-std=c++1z", "src/*.cpp", "-o", "client", "-lsfml-graphics", "-lsfml-window", "-lsfml-system", "&&", "./client"
+
+                //"-c", "'clang++", "-Wall", "-g", "main.cpp", "-o
+                //g++  src/*.cpp -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system -enetlib.a && ./sfml-app
+                //"-c", "'clang++", "-Wall", "-g", "main.cpp", "-o", "main'"
+            ]
+        },
+        {
+            "label": "build & run",
+            "type": "shell",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "windows": {
+                "command": "powershell"
+            },
+            "linux": {
+                "command": "bash"
+            },
+            "args": [
+                "-c",
+                "'make run'"
+            ]
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "windows": {
+                "command": "powershell"
+            },
+            "linux": {
+                "command": "bash"
+            },
+            "args": [
+                "-c",
+                "'make clean'"
+            ]
+        }
+    ]
+}
