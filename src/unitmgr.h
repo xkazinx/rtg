@@ -26,12 +26,35 @@ public:
     void Move(const Vector2f & pos);
 
     template<typename Func>
-    auto FindIf(Func func) {
-        auto it = std::find_if(_list.begin(), _list.end(), func);
+    auto FindIf(Func func)
+    {
+        auto it = std::find_if(GetList().begin(), GetList().end(), func);
         return it != _list.end() ? it->get() : nullptr;
     }
 
     Unit * FindById(const Id & id);
 
+    /**
+     * Returns a vector of Unit*
+     * auto results = FindAllIf([&](auto & unit) { unit->Is(id); });
+     */ 
+    template<typename Func>
+    auto FindAllIf(Func func) 
+    {
+        vector<Unit*> res;
+
+        for(auto & it : GetList()) 
+        {
+            if (!func(it.get())) 
+                continue;
+                
+            res.push_back(it.get());
+        }
+
+        return res;
+    }
+
     void Select(const FloatRect & area);
+
+    RectangleShape test;
 };

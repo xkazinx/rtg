@@ -6,6 +6,7 @@ private:
     CircleShape _shape;
     UnitId _id;
     Vector2f _destination;
+    bool _selected;
 
 public:
     using Id = UnitId;
@@ -19,6 +20,19 @@ public:
     auto & GetShape() { return _shape; }
     auto & GetShape() const { return _shape; }
 
+    auto & GetSelected() const { return _selected; }
+    void SetSelected(const bool & value) {
+        _selected = value;
+        _shape.setFillColor(_selected ? sf::Color::Blue : sf::Color::Red);
+    }
+
+
+    void SetDestination(const Vector2f & pos)
+    {
+        _destination = pos;
+    }
+
+
     auto & GetPos() { return GetShape().getPosition(); }
     auto & GetPos() const { return GetShape().getPosition(); }
 
@@ -28,8 +42,6 @@ public:
     {
         target.draw(_shape);
     }
-
-    void SetDestination(const Vector2f & pos);
 
     void Tick();
 };

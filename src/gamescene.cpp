@@ -51,6 +51,8 @@ void GameScene::HandleEvents(Event & event)
 
 void GameScene::Render(RenderTarget & target, RenderStates & states) const
 {
+    target.draw(g::unit_mgr->test);
+
     for(const auto & unit : g::unit_mgr->GetList()) {
         target.draw(*unit.get());
     }
