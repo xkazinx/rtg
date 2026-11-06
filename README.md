@@ -2,6 +2,8 @@
 
 A real-time strategy prototype from 2018: drag a box to select units, right click to send the group, which keeps its shape on the way. C++23, SFML 3.1 and kazilib.
 
+**Made without AI** until the first Claude commit (de4f9be, 2026-11-06); AI was used after that for the updated deployment and this README.
+
 **Play it in your browser: https://kazin.dev/projects/rtg/**
 
 ![The selection box around a group of blue units on their yellow destination, two red units unselected](docs/screenshot.png)
