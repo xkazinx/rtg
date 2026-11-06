@@ -1,4 +1,19 @@
-
-client
-
 \.vs/slnx\.sqlite
+/.vs
+src/.vs/
+*.vcxproj.user
+
+# Library junction made by setup.ps1
+/src/dep/SFML-3.1.0
+# Intermediates (FASTBuild config, objects, the web build, the upload stage)
+/src/build/
+# Build output
+/deploy/*.exe
+/deploy/*.dll
+/deploy/*.pdb
+/deploy/*.lib
+/deploy/*.exp
+/deploy/*.ilk
+/deploy/exceptions/
+# Test shots and reports (the steps are in src/tests/web/)
+/testerino/

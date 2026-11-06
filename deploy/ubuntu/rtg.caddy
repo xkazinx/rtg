@@ -1,0 +1,12 @@
+# rtg (github.com/xkazinx/rtg) at kazin.dev/projects/rtg: the web build, static (no
+# server). Written by deploy/ubuntu/install.sh. Imported inside the kazin.dev site
+# block (`import /etc/caddy/sites/kazin.dev.d/*.caddy`).
+redir /projects/rtg /projects/rtg/ permanent
+
+# The web build, with the prefix taken off; revalidated each visit (a new build
+# keeps its names)
+handle_path /projects/rtg/* {
+	root * /opt/rtg/web
+	header Cache-Control "no-cache"
+	file_server
+}
